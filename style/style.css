@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --light-blue: hsl(237, 18%, 59%);
+    --light-pink: hsl(345, 95%, 68%);
+    --white: hsl(0, 0%, 100%);
+    --dark-blue-100: hsl(236, 21%, 26%);
+    --main-bg: hsl(234, 17%, 12%);
+}
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('./../images/bg-stars.svg');
+    background-color: var(--main-bg);
+}
+
+h2 {
+    position: absolute;
+    top: 15%;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);
+    letter-spacing: 6px;
+}
+
+.countdown-wrapper {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+}
+
+.flip-card {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 13px 0 0 black;
+    position: relative;
+}
+
+.top-flip,
+.bottom-flip {
+    position: absolute;
+}
+
+.top-flip {
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+    animation: flip-top 0.5s ease-in forwards;
+}
+
+.bottom-flip {
+    bottom: 0;
+    animation: flip-bottom 0.5s ease-out 0.5s;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+
+.top,
+.bottom,
+.top-flip,
+.bottom-flip {
+    height: 33px;
+    width: 80px;
+    padding: 21px 16px;
+    color: var(--light-pink);
+    overflow: hidden;
+    text-align: center;
+}
+
+.top,
+.top-flip {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.7);
+    background-color: rgb(48, 50, 78);
+}
+
+.bottom,
+.bottom-flip {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--dark-blue-100);
+    box-shadow: 0 2px rgb(71, 83, 115, 0.2) inset;
+}
+
+p {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--light-blue);
+    margin-top: 40px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer>img {
+    width: 250%;
+}
+
+.media {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.media>span {
+    margin-right: 10px;
+    cursor: pointer;
+    height: min-content;
+}
+
+.media>span:hover,
+.media>span:active {
+    filter: invert(60%) sepia(43%) saturate(6017%) hue-rotate(315deg) brightness(109%) contrast(97%);
+}
+
+.attribution {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    width: 95%;
+    text-align: center;
+    font-size: 11px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.title {
+    margin-top: 1.2rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+@keyframes flip-top {
+    to {
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes flip-bottom {
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+@media (min-width: 376px) {
+    .flip-card {
+        font-size: 5rem;
+    }
+
+    .title {
+        font-size: 0.8rem;
+    }
+
+    .countdown-wrapper {
+        gap: 35px;
+    }
+
+    .top,
+    .bottom,
+    .top-flip,
+    .bottom-flip {
+        height: 80px;
+        width: 150px;
+        padding: 27px 16px;
+    }
+
+    .footer>img {
+        width: 100%;
+    }
+
+    .media>span {
+        margin-right: 25px;
+    }
+
+    .attribution {
+        font-size: 1rem;
+        bottom: 1vw;
+    }
+}
